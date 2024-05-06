@@ -1,6 +1,6 @@
 //import Counter from '@/component/Counter';
 import type { NextPage } from 'next';
-import styles from './button.module.css';
+import styles from "@/styles/Home.module.css";
 import { Item } from '@/models/item';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store'
@@ -23,17 +23,15 @@ const StorefrontPage: NextPage = () => {
 
 
     return (
-        <div>
-            <h1>Welcome to the Counter Page</h1>
-            <h2>
-                {shoppingCart.length}
-            </h2>
-            <Link href='cart'>Cart</Link>
+        <div className="container">
+            <h1>Please select the items you wish to purchase</h1>
+            <Link href='cart'>
+        Cart ({shoppingCart.length})
+    </Link>
 
-            <p>This is a simple example of integrating Redux with a counter component in Next.js.</p>
             {
                 items.map((value: Item, index: number) => (
-                    <div key={index}>
+                    <div key={index} className="item">
                         <br></br>
                         <h3 style={{paddingBottom:"5px"}}>{value.name} ${value.price}</h3>
                         <button onClick={() => dispatch(add(value))}>Add to Cart</button>

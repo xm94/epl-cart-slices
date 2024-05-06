@@ -16,16 +16,15 @@ const CartPage: NextPage = () => {
 
 
     return (
-        <div>
-            <h1>Welcome to the Counter Page</h1>
+        <div className="container">
+            <h1>Your Cart</h1>
             <h2>
-                {shoppingCart.length}
+                Items in Cart: {shoppingCart.length}
             </h2>
-            <Link href='storefront'>link</Link>
-            <p>This is a simple example of integrating Redux with a counter component in Next.js.</p>
+            <Link href='storefront'>Back to Store</Link>
             {
                 shoppingCart.map((value: Item, index: number) => (
-                    <div key={index}>
+                    <div key={index} className="item">
                         <br></br>
                         <h3 style={{ paddingBottom: "5px" }}>{value.name} ${value.price}</h3>
                         <button onClick={() => dispatch(remove(value))}>Remove from Cart</button>
@@ -33,8 +32,8 @@ const CartPage: NextPage = () => {
                 ))
             }
             <br></br>
-            { shoppingCart!=null && shoppingCart.length>0 ? <button onClick={() => dispatch(clear())}>Clear Cart</button> : <></>}
-            
+            {shoppingCart != null && shoppingCart.length > 0 ? <button onClick={() => dispatch(clear())}>Clear Cart</button> : <></>}
+
         </div>
     );
 };
