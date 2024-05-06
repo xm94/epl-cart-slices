@@ -9,7 +9,6 @@ import Link from 'next/link';
 
 const StorefrontPage: NextPage = () => {
 
-
     let items: Item[] = [
         { name: "Water", price: 5 },
         { name: "Eggs", price: 6 },
@@ -21,20 +20,24 @@ const StorefrontPage: NextPage = () => {
     const dispatch = useDispatch();
 
 
-
     return (
         <div className="container">
             <h1>Please select the items you wish to purchase</h1>
+
             <Link href='cart'>
-        Cart ({shoppingCart.length})
-    </Link>
+                Cart ({shoppingCart.length})
+            </Link>
 
             {
                 items.map((value: Item, index: number) => (
                     <div key={index} className="item">
                         <br></br>
-                        <h3 style={{paddingBottom:"5px"}}>{value.name} ${value.price}</h3>
+                        
+                        <h3 style={{ paddingBottom: "5px" }}>{value.name} ${value.price}</h3>
+
+
                         <button onClick={() => dispatch(add(value))}>Add to Cart</button>
+
                     </div>
                 ))
             }

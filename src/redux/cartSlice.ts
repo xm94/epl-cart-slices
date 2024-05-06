@@ -6,7 +6,7 @@ interface CartState {
 }
 
 const initialState: CartState = {
-    cart:[]
+    cart: []
 };
 
 const cartSlice = createSlice({
@@ -14,17 +14,18 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         add: (state, action) => {
-            state.cart = [...state.cart,action.payload];
+            state.cart = [...state.cart, action.payload];
         },
         clear: (state) => {
             state.cart = [];
         },
-        remove: (state,action) =>{
-            console.log(action.payload);
-            let index = state.cart.findIndex(item => item.name === action.payload.name && item.price === action.payload.price);
-            console.log(index);
-            state.cart.splice(index,1);
-            console.log(state.cart);
+        remove: (state, action) => {
+            //find the first matching index of item to be removed
+            let index = state.cart.findIndex(item =>
+                item.name === action.payload.name
+                && item.price === action.payload.price);
+            //toSpliced allows the splice operation without modifying the original array
+            state.cart = state.cart.toSpliced(index, 1);
         }
     }
 });
