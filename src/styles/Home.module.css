@@ -237,13 +237,6 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-h1, h2, p {
-  text-align: center;
-}
-
-h1 {
-  color: #0056b3;
-}
 
 .link-cart {
   display: inline-block;
@@ -267,15 +260,3 @@ h1 {
   border-bottom: 1px solid #ccc;
 }
 
-button {
-  background: #28a745;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #218838;
-}
